@@ -24,8 +24,8 @@ module.exports = function (Stem) {
    * Register handlers
    */
 
-  Stem.api.addHandler('bot', 'relationships', require('./relationships'));
-  
-  Stem.api.addHandler('bot', 'friend', require('./friend'));
+  Stem.api.addHandler('bot', 'relationships', require('./handlers/relationships'));
+
+  Stem.api.addHandler('bot', 'friend', require('./handlers/friend'));
   
 };

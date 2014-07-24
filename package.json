@@ -1,6 +1,6 @@
 {
   "name": "stem-friends",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Friends manager plugin for Stem",
   "main": "index.js",
   "author": "Alvin Lazaro <me@alvinl.com>",
