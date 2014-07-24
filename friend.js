@@ -1,10 +1,14 @@
 
 module.exports = function (steamID, relationshipStatus) {
   
-  var isWhitelistEnabled  = this.configs['stem-friends'].whitelist.enabled,
-      whitelist           = this.configs['stem-friends'].whitelist.users,
+  var isWhitelistEnabled  = (this.configs['stem-friends'].whitelist) ? 
+                            this.configs['stem-friends'].whitelist.enabled : 
+                            false,
+      whitelist           = (this.configs['stem-friends'].whitelist) ? 
+                            this.configs['stem-friends'].whitelist.users : 
+                            [],
       isAutoacceptEnabled = this.configs['stem-friends'].autoaccept,
-      isAdmin             = this.utils.isAdmin(steamID),
+      isAdmin             = this.api.isAdmin(steamID),
       bot                 = this.bot,
       log                 = this.log;
 

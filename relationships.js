@@ -1,8 +1,12 @@
 
 module.exports = function () {
   
-  var isWhitelistEnabled  = this.configs['stem-friends'].whitelist.enabled,
-      whitelist           = this.configs['stem-friends'].whitelist.users,
+  var isWhitelistEnabled  = (this.configs['stem-friends'].whitelist) ? 
+                            this.configs['stem-friends'].whitelist.enabled : 
+                            false,
+      whitelist           = (this.configs['stem-friends'].whitelist) ? 
+                            this.configs['stem-friends'].whitelist.users : 
+                            [],
       isAutoacceptEnabled = this.configs['stem-friends'].autoaccept,
       bot                 = this.bot,
       log                 = this.log,
@@ -11,7 +15,7 @@ module.exports = function () {
   // Handle pending friend requests
   for (var friend in bot.friends) {
 
-    var isAdmin      = Stem.utils.isAdmin(friend),
+    var isAdmin      = Stem.api.isAdmin(friend),
         friendStatus = bot.friends[friend];
 
     // Skip non-pending requests
